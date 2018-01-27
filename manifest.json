@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "name": "SmartWrap",
+  "description": "Smartwrap Plugin, to amnually extract tables frmo web pages",
+  "version": "1.0",
+  "icons": {
+    "24": "images/sw24.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "<all_urls>",
+    "tabs",
+    "windows",
+	  "https://sw-auth.appspot.com/*"
+  ],
+	"background":{
+    "scripts": ["scripts/background.js"]
+	},
+  "content_scripts": [
+    {
+	    "matches": ["http://*/*"],
+      "js": ["scripts/sendmessage.js"]
+    }
+  ],
+  "browser_action": {
+    "default_icon": "images/sw24.png",
+    "default_title": "SmartWrap"
+  },
+  "default_locale": "en",
+  "web_accessible_resources": [
+    "pages/smartwrap.html"
+  ],
+  "options_ui": {
+    "page": "pages/options.html"
+  }
+}
